@@ -1,8 +1,10 @@
 mkdir build
 
-cmake -S . -B build
+cmake -S . -B build		# See the note on -DMD=1 option when building a library for use with the X-KeyPad Stream Deck plugin
 
 cmake --build build --config Debug
 
 cmake --build build --config Release
+
+Note: use -DMD=1 to build the /MD library for the X-KeyPad Stream Deck Plugin. The X-Plane plugin defaults to /MT
 

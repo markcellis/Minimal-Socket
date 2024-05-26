@@ -6,8 +6,15 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 if(WIN32)
+# The X-KeyPad StremDeck plugin needs a MD library while the X-KeyPad plugin needs an MT
+if(MD)
+	set(CMAKE_CXX_FLAGS_RELEASE "/MD")
+	set(CMAKE_CXX_FLAGS_DEBUG "/MDd")
+else()
 	set(CMAKE_CXX_FLAGS_RELEASE "/MT")
 	set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
+endif()
+
 endif(WIN32)
 
 project(MinimalCppSocket)
