@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28 FATAL_ERROR)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
@@ -16,6 +16,11 @@ else()
 endif()
 
 endif(WIN32)
+
+if(UNIX)
+   # Add compiler option for all targets
+   add_compile_options(-fPIC)
+endif()
 
 project(MinimalCppSocket)
 
